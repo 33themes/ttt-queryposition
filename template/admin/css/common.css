@@ -1,0 +1,45 @@
+#TTTqueryposition {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+#TTTqueryposition .source {
+    float: left;
+    margin: 0 5px 10px;
+    width: 12%;
+    cursor: pointer;
+    display: block;
+    padding: 0.71429em 1.07143em 1em;
+    text-align: left;
+    border: 1px solid #dae0e2;
+    background: #fff;
+    box-shadow: 0 0 0 rgba(0,0,0,0.03);
+    transition: opacity 2s ease-in;
+    box-shadow: 1px 1px 1px #ccc;
+    border-radius: 3px;
+}
+
+#TTTqueryposition .position {
+    width: 28%;
+    margin: 5px 10px;
+    padding: 0.71em 1.08em 1em;
+    float: left;
+    display: block;
+    background: #ccc;
+    box-shadow: 1px 1px 1px #ccc;
+    border-radius: 3px;
+}
+
+#TTTqueryposition [data-num="0"]  {  background: #CCCCCC;     color:#fff; }
+#TTTqueryposition [data-num="1"]  {  background: #b03efd;     color:#fff; }
+#TTTqueryposition [data-num="2"]  {  background: #fcb13f;     color:#000; }
+#TTTqueryposition [data-num="3"]  {  background: #5c229d;     color:#fff; }
+#TTTqueryposition [data-num="4"]  {  background: #3ffcb1;     color:#000; }
+#TTTqueryposition [data-num="5"]  {  background: #9e5c23;     color:#fff; }
+#TTTqueryposition [data-num="6"]  {  background: #c6c087;     color:#000; }
+#TTTqueryposition [data-num="7"]  {  background: #87c7c1;     color:#000; }
+#TTTqueryposition [data-num="8"]  {  background: #c187c7;     color:#000; }
+#TTTqueryposition [data-num="9"]  {  background: #239e5c;     color:#fff; }
+#TTTqueryposition [data-num="10"] {  background: #94f95e;     color:#000; }
+#TTTqueryposition [data-num="11"] {  background: #fa5f95;     color:#000; }
+
