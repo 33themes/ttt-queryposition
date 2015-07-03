@@ -10,11 +10,11 @@ class TTTqueryposition_Admin extends TTTqueryposition_Common {
     }
 
     function init() {
-		if( current_user_can('edit_posts') ) {
-			add_action('add_meta_boxes', array( &$this, 'add_meta_boxes' ) );
-			add_action('admin_menu', array( &$this, 'menu' ) );
-			$this->ajax();
-		}
+        if( current_user_can('edit_posts') ) {
+            add_action('add_meta_boxes', array( &$this, 'add_meta_boxes' ) );
+            add_action('admin_menu', array( &$this, 'menu' ) );
+            $this->ajax();
+        }
     }
 
     public function menu() {
@@ -29,14 +29,14 @@ class TTTqueryposition_Admin extends TTTqueryposition_Common {
 
     }
 
-	public function enqueue_common() {
-		
-		add_action( 'print_media_templates', array( $this, 'print_media_templates' ) );
+    public function enqueue_common() {
+        
+        add_action( 'print_media_templates', array( $this, 'print_media_templates' ) );
 
-		wp_enqueue_media();
-		wp_enqueue_style(  'ttt-queryposition-css', plugins_url('template/admin/css/common.css' , dirname(__FILE__) ) );
-		wp_enqueue_script( 'ttt-queryposition-js', plugins_url('template/admin/js/common.js' , dirname(__FILE__) ), array( 'jquery', 'jquery-masonry', 'underscore' ) );
-	}
+        wp_enqueue_media();
+        wp_enqueue_style(  'ttt-queryposition-css', plugins_url('template/admin/css/common.css' , dirname(__FILE__) ) );
+        wp_enqueue_script( 'ttt-queryposition-js', plugins_url('template/admin/js/common.js' , dirname(__FILE__) ), array( 'jquery', 'jquery-masonry', 'underscore' ) );
+    }
 
     public function menu_page() {
         echo "ok";
@@ -53,30 +53,30 @@ class TTTqueryposition_Admin extends TTTqueryposition_Common {
 
 
 
-		wp_localize_script('ttt-queryposition-js', 'tttquerypositionConf',array(
+        wp_localize_script('ttt-queryposition-js', 'tttquerypositionConf',array(
             'ajax' => admin_url('admin-ajax.php'),
             'preview_url' => get_site_url(),
             'slug' => $ttt_querypositions_slug,
-			'Nonce' => wp_create_nonce( 'ttt-queryposition-preview-nonce' ),
-		));
+            'Nonce' => wp_create_nonce( 'ttt-queryposition-preview-nonce' ),
+        ));
 
         echo '<div id="TTTqueryposition">';
-		require_once( TTTINC_QUERYPOSITION .'/template/admin/main.php' );
+        require_once( TTTINC_QUERYPOSITION .'/template/admin/main.php' );
         echo '</div>';
     }
 
     public function ajax() {
-		add_action('wp_ajax_ttt-queryposition_list', array( &$this, 'list_callback' ) );
+        add_action('wp_ajax_ttt-queryposition_list', array( &$this, 'list_callback' ) );
     }
 
-	public function _header_callback() {
-		header("Content-Type: application/json", true);
-		header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
-		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-		header("Cache-Control: no-store, no-cache, must-revalidate");
-		header("Cache-Control: post-check=0, pre-check=0", false);
-		header("Pragma: no-cache");
-	}
+    public function _header_callback() {
+        header("Content-Type: application/json", true);
+        header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
+        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+        header("Cache-Control: no-store, no-cache, must-revalidate");
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        header("Pragma: no-cache");
+    }
 
     public function list_callback() {
         $this->_header_callback();

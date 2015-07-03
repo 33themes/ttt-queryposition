@@ -14,35 +14,35 @@ define('TTTVERSION_QUERYPOSITION', 0.1 );
 
 
 function ttt_autoload_queryposition( $class ) {
-	if ( 0 !== strpos( $class, 'TTTqueryposition' ) )
-		return;
-	
-	$file = TTTINC_QUERYPOSITION . '/class/' . $class . '.php';
+    if ( 0 !== strpos( $class, 'TTTqueryposition' ) )
+        return;
+    
+    $file = TTTINC_QUERYPOSITION . '/class/' . $class . '.php';
     if (is_file($file)) {
-		require_once $file;
-		return true;
+        require_once $file;
+        return true;
     }
-	
-	throw new Exception("Unable to load $class at ".$file);
+    
+    throw new Exception("Unable to load $class at ".$file);
 }
 
 if ( function_exists( 'spl_autoload_register' ) ) {
-	spl_autoload_register( 'ttt_autoload_queryposition' );
+    spl_autoload_register( 'ttt_autoload_queryposition' );
 } else {
-	require_once TTTINC_queryposition . '/class/TTTqueryposition.php';
+    require_once TTTINC_queryposition . '/class/TTTqueryposition.php';
 }
 
 function tttqueryposition_init () {
-	$s = load_plugin_textdomain( 'tttqueryposition', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
+    $s = load_plugin_textdomain( 'tttqueryposition', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
     if ( !is_admin() ) {
-    // 	global $TTTqueryposition_Front;
-    // 	$TTTqueryposition_Front = new TTTqueryposition_Front();
-    // 	$TTTqueryposition_Front->init();
+    //  global $TTTqueryposition_Front;
+    //  $TTTqueryposition_Front = new TTTqueryposition_Front();
+    //  $TTTqueryposition_Front->init();
     }
     else {
-    	global $TTTqueryposition_Admin;
-    	$TTTqueryposition_Admin = new TTTqueryposition_Admin();
-    	$TTTqueryposition_Admin->init();
+        global $TTTqueryposition_Admin;
+        $TTTqueryposition_Admin = new TTTqueryposition_Admin();
+        $TTTqueryposition_Admin->init();
     }
 }
 

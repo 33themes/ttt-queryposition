@@ -8,24 +8,24 @@ class TTTqueryposition_Common {
 
     }
 
-	public function _s( $s = false ) {
-		if ( $s === false) return self::name;
-		return self::sname.'_'.$s;
-	}
-	
-	public function del( $name ) {
-		return delete_option( self::sname . '_' . $name );
-	}
-	
-	public function get( $name ) {
-		return get_option( self::sname . '_' . $name );
-	}
-	
-	public function set( $name, $value ) {
-		if (!get_option( self::sname . '_' . $name ))
-			add_option( self::sname . '_' . $name, $value);
-		
-		update_option( self::sname . '_' . $name , $value);
+    public function _s( $s = false ) {
+        if ( $s === false) return self::name;
+        return self::sname.'_'.$s;
+    }
+    
+    public function del( $name ) {
+        return delete_option( self::sname . '_' . $name );
+    }
+    
+    public function get( $name ) {
+        return get_option( self::sname . '_' . $name );
+    }
+    
+    public function set( $name, $value ) {
+        if (!get_option( self::sname . '_' . $name ))
+            add_option( self::sname . '_' . $name, $value);
+        
+        update_option( self::sname . '_' . $name , $value);
     }
 
     public function get_sources($slug) {
@@ -88,45 +88,45 @@ class TTTqueryposition_Common {
     }
 
     // public function load_styles( $template = 'default' ) {
-    // 	if ( !isset($this->template_styles[ $template ]) ) {
-    // 		$_s = array(
-    // 			get_stylesheet_directory().'/ttt-queryposition/'.$template.'/styles.php',
-    // 			get_template_directory().'/ttt-queryposition/'.$template.'/styles.php',
-    // 			TTTINC_GALLERY . '/template/front/'.$template.'/styles.php'
-    // 		);
-    // 		foreach( $_s as $_template ) {
-    // 			if (!is_file($_template) || !is_readable($_template)) continue;
-    // 			
-    // 			require_once $_template;
-    // 			break;
-    // 		}
-    // 	}
+    //  if ( !isset($this->template_styles[ $template ]) ) {
+    //      $_s = array(
+    //          get_stylesheet_directory().'/ttt-queryposition/'.$template.'/styles.php',
+    //          get_template_directory().'/ttt-queryposition/'.$template.'/styles.php',
+    //          TTTINC_GALLERY . '/template/front/'.$template.'/styles.php'
+    //      );
+    //      foreach( $_s as $_template ) {
+    //          if (!is_file($_template) || !is_readable($_template)) continue;
+    //          
+    //          require_once $_template;
+    //          break;
+    //      }
+    //  }
     // 
     // }
     // 
     // public function template( $ttt_queryposition, $extras ) {
     // 
     // 
-    // 	$this->load_styles( $ttt_queryposition->template );
+    //  $this->load_styles( $ttt_queryposition->template );
     // 
-    // 	ob_start();
-    // 	$_s = array(
-    // 		get_stylesheet_directory().'/ttt-queryposition/'.$ttt_queryposition->template.'/template.php',
-    // 		get_template_directory().'/ttt-queryposition/'.$ttt_queryposition->template.'/template.php',
-    // 		TTTINC_GALLERY . '/template/front/'.$ttt_queryposition->template.'/template.php'
-    // 	);
+    //  ob_start();
+    //  $_s = array(
+    //      get_stylesheet_directory().'/ttt-queryposition/'.$ttt_queryposition->template.'/template.php',
+    //      get_template_directory().'/ttt-queryposition/'.$ttt_queryposition->template.'/template.php',
+    //      TTTINC_GALLERY . '/template/front/'.$ttt_queryposition->template.'/template.php'
+    //  );
     // 
-    // 	if (is_array($extras))
+    //  if (is_array($extras))
     //     extract($extras);
     // 
-    // 	foreach( $_s as $_template ) {
-    // 		if (!is_file($_template) || !is_readable($_template)) continue;
-    // 		
-    // 		require $_template;
-    // 		break;
-    // 	}
+    //  foreach( $_s as $_template ) {
+    //      if (!is_file($_template) || !is_readable($_template)) continue;
+    //      
+    //      require $_template;
+    //      break;
+    //  }
     // 
-    // 	return ob_get_clean();
+    //  return ob_get_clean();
     // }
 
 

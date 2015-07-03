@@ -152,5 +152,3 @@ class TTTqueryposition extends WP_Query {
     }
 
 }
-
-?>
