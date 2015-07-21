@@ -13,6 +13,7 @@ class TTTqueryposition extends WP_Query {
         }
 
         if (isset($_REQUEST['preview'])) {
+            $this->_cq_slug = $_REQUEST['slug'];
             $common = new TTTqueryposition_Common();
             $params = $common->parse_form( $_REQUEST['slug'] );
         }
@@ -41,7 +42,6 @@ class TTTqueryposition extends WP_Query {
             $this->query(apply_filters('ttt_queryposition_wp_query_args',$params));
         }
 
-
         $this->reindex();
 
     }
@@ -53,7 +53,11 @@ class TTTqueryposition extends WP_Query {
 
         ksort($this->_cq_extras, SORT_NUMERIC);
 
-        $limit = count($this->_cq_extras) + count( $this->posts );
+        // $limit = count($this->_cq_extras) + count( $this->posts );
+
+        $common = new TTTqueryposition_Common();
+        $gui = $common->get($this->_cq_slug.'_gui');
+        $limit = $gui['posts_per_page'];
 
 
         for( $count=1; $count<=$limit; $count++ ) {
