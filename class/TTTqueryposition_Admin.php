@@ -2,7 +2,7 @@
 
 class TTTqueryposition_Admin extends TTTqueryposition_Common {
 
-    private $role = 'edit_page';
+    private $role = 'edit_pages';
 
     function __construct() {
         parent::__construct();
