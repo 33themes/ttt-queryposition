@@ -65,7 +65,7 @@ class TTTqueryposition extends WP_Query {
                 $new[] = $this->_cq_extras[$count];
                 unset($this->_cq_extras[$count]);
             }
-            else {
+            elseif(count($this->posts) > 0) {
                 $new[] = array_shift($this->posts);
             }
         }
